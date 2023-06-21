@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Learn Javascript</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="alert">Data gagal di input</div>
+            <form id="input-buku">
+                <div class="form-grub">
+                    <label for="author">Author</label>
+                    <input
+                        type="text"
+                        placeholder="Author"
+                        name="author"
+                        id="author"
+                    />
+                </div>
+
+                <div class="form-grub">
+                    <label for="judul">Judul</label>
+                    <input
+                        type="text"
+                        placeholder="Judul"
+                        name="judul"
+                        id="judul"
+                    />
+                </div>
+
+                <div class="form-grub">
+                    <label for="isbn">ISBN</label>
+                    <input
+                        type="text"
+                        placeholder="ISBN"
+                        name="isbn"
+                        id="isbn"
+                    />
+                </div>
+                <button type="submit" id="simpan">Simpan</button>
+            </form>
+
+            <div id="list-buku">
+                <table border="1" width="100%">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Author</th>
+                            <th>Judul</th>
+                            <th>ISBN</th>
+                            <th>Opsi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Oke</td>
+                            <td>Oke</td>
+                            <td>Oke</td>
+                            <td>
+                                <button type="button">Hapus</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
