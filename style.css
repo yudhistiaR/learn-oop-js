@@ -35,6 +35,13 @@
     font-size: 18px;
     color: #fff;
     cursor: pointer;
+    border: none;
+}
+
+#input-buku button:hover {
+    background-color: #888;
+    color: #fff;
+    transition: 0.3s;
 }
 
 .form-grub {
@@ -50,4 +57,22 @@
 
 #list-buku {
     margin-top: 20px;
+}
+
+.list {
+    text-align: center;
+}
+
+.list .hapus {
+    padding: 5px 5px;
+    cursor: pointer;
+    background-color: #fff;
+    border-radius: 5px;
+    border: none;
+}
+
+.list .hapus:hover {
+    background-color: red;
+    color: #fff;
+    transition: 0.3s;
 }

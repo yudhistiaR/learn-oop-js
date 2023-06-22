@@ -46,11 +46,23 @@ class Task {
 
     static TaskList() {
         let task = this.addTask();
+        const list = document.querySelector('.list');
+        let no = 1;
+
+        list.innerHTML = `
+            <td>${no++}</td>
+            <td>${task.author}</td>
+            <td>${task.judul}</td>
+            <td>${task.isbn}</td>
+            <td style="text-align:center">
+                <button type="button" class="hapus">X</button>
+            </td>
+        `;
     }
 }
 
 const simpan = document.getElementById('simpan');
 
 simpan.addEventListener('click', () => {
-    const add = Task.addTask();
+    Task.TaskList();
 });
