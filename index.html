@@ -8,7 +8,7 @@
     </head>
     <body>
         <div class="container">
-            <div class="alert">Data gagal di input</div>
+            <div class="alert"></div>
             <form id="input-buku">
                 <div class="form-grub">
                     <label for="author">Author</label>
@@ -39,7 +39,7 @@
                         id="isbn"
                     />
                 </div>
-                <button type="submit" id="simpan">Simpan</button>
+                <button type="button" id="simpan">Simpan</button>
             </form>
 
             <div id="list-buku">
@@ -54,13 +54,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr class="list">
                             <td>1</td>
                             <td>Oke</td>
                             <td>Oke</td>
                             <td>Oke</td>
                             <td>
                                 <button type="button">Hapus</button>
+                                <button type="button">Edit</button>
                             </td>
                         </tr>
                     </tbody>
