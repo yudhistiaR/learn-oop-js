@@ -1,3 +1,6 @@
+const simpan = document.getElementById('simpan');
+const tasks = [];
+
 class Buku {
     constructor(author, judul, isbn) {
         this.author = author;
@@ -8,21 +11,24 @@ class Buku {
 
 class Task {
     static addTask() {
-        const author = document.getElementById('author').value;
-        const judul = document.getElementById('judul').value;
-        const isbn = document.getElementById('isbn').value;
+        let author = document.getElementById('author').value;
+        let judul = document.getElementById('judul').value;
+        let isbn = document.getElementById('isbn').value;
 
         if (author !== '' && judul !== '' && isbn !== '') {
-            this.showAlert(true);
-            const add = new Buku(author, judul, isbn);
-            return add;
+            this.ShowAlert(true);
+
+            let add = new Buku(author, judul, isbn);
+
+            tasks.push(add);
         } else {
-            this.showAlert(false);
+            this.ShowAlert(false);
             return;
         }
+        return tasks;
     }
 
-    static showAlert(call) {
+    static ShowAlert(call) {
         const bgCol = {
             success: 'green',
             error: 'red',
@@ -45,23 +51,31 @@ class Task {
     }
 
     static TaskList() {
-        let task = this.addTask();
-        const list = document.querySelector('.list');
-        let no = 1;
+        const task = this.addTask();
 
-        list.innerHTML = `
-            <td>${no++}</td>
-            <td>${task.author}</td>
-            <td>${task.judul}</td>
-            <td>${task.isbn}</td>
-            <td style="text-align:center">
-                <button type="button" class="hapus">X</button>
-            </td>
-        `;
+        if (task.length > 0) {
+            const list = document.querySelector('.list');
+            let no = 1;
+
+            task.forEach((el, i) => {
+                list.insertAdjacentHTML(
+                    'afterbegin',
+                    `
+                    <tr>
+                        <td>${i}</td>
+                        <td>${el.author}</td>
+                        <td>${el.judul}</td>
+                        <td>${el.isbn}</td>
+                        <td>
+                            <button type='button' class='hapus' onClick='hapus()'>X</button>
+                        </td>
+                    </tr>
+                `
+                );
+            });
+        }
     }
 }
-
-const simpan = document.getElementById('simpan');
 
 simpan.addEventListener('click', () => {
     Task.TaskList();
