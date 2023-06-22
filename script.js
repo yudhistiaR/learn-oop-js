@@ -1,5 +1,4 @@
 const simpan = document.getElementById('simpan');
-const tasks = [];
 
 class Buku {
     constructor(author, judul, isbn) {
@@ -10,6 +9,8 @@ class Buku {
 }
 
 class Task {
+    static tasks = [];
+
     static addTask() {
         let author = document.getElementById('author').value;
         let judul = document.getElementById('judul').value;
@@ -20,12 +21,12 @@ class Task {
 
             let add = new Buku(author, judul, isbn);
 
-            tasks.push(add);
+            this.tasks.push(add);
         } else {
             this.ShowAlert(false);
             return;
         }
-        return tasks;
+        return this.tasks;
     }
 
     static ShowAlert(call) {
@@ -55,7 +56,6 @@ class Task {
 
         if (task.length > 0) {
             const list = document.querySelector('.list');
-            let no = 1;
 
             task.forEach((el, i) => {
                 list.insertAdjacentHTML(
@@ -67,7 +67,7 @@ class Task {
                         <td>${el.judul}</td>
                         <td>${el.isbn}</td>
                         <td>
-                            <button type='button' class='hapus' onClick='hapus()'>X</button>
+                            <button type='button' class='hapus'>X</button>
                         </td>
                     </tr>
                 `
